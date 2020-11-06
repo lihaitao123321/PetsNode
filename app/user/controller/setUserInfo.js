@@ -1,0 +1,1 @@
+const userService = require('../service/userService');module.exports = (req, res, next) => {  let userInfo = req.query || req.body;  userService.setUserInfo(userInfo, (newInfo) => {    if(newInfo){      Tools.json(res,0,'修改成功',newInfo);    }else{      Tools.json(res,-1,'修改失败');    }  })}
